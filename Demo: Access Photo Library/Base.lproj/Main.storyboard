@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo__Access_Photo_Library" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TbG-sJ-mSg">
+                                <rect key="frame" x="0.0" y="36" width="320" height="220"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="EAh-r4-r1j"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lh8-G8-6LN">
+                                <rect key="frame" x="100" y="336" width="120" height="30"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.38431372549999998" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ima-hI-lWS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Select Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="imagePickerBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s2A-ed-T5R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lh8-G8-6LN" secondAttribute="trailing" constant="100" id="1Qo-7o-6GL"/>
+                            <constraint firstItem="lh8-G8-6LN" firstAttribute="top" secondItem="TbG-sJ-mSg" secondAttribute="bottom" constant="80" id="826-DB-UMp"/>
+                            <constraint firstItem="lh8-G8-6LN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="esL-tv-vcp"/>
+                            <constraint firstItem="TbG-sJ-mSg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fFU-xt-DbG"/>
+                            <constraint firstItem="TbG-sJ-mSg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="nEL-xQ-nRX"/>
+                            <constraint firstItem="TbG-sJ-mSg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="z0u-2O-wJh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="lh8-G8-6LN" id="1ye-RO-27E"/>
+                        <outlet property="selectedImageOL" destination="TbG-sJ-mSg" id="6Aw-zs-lTV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-166.875" y="-96.126760563380287"/>
+        </scene>
+    </scenes>
+</document>
