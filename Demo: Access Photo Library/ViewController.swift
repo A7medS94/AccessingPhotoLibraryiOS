@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class ViewController: UIViewController {
+    
     @IBOutlet weak var selectedImageOL: UIImageView!
     @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
@@ -32,31 +32,45 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let imagePicker = UIImagePickerController()
             
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             imagePicker.sourceType = .photoLibrary
             imagePicker.delegate = self
+            
             present(imagePicker, animated: true, completion: nil)
+
         }
     }
-    
-    
-    //Getting the image and showing it
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        let selectedImage : UIImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        
-        selectedImageOL.image = selectedImage
-        
-        dismiss(animated: true, completion: nil)
-    }
+}
+
+
+extension ViewController : UIImagePickerControllerDelegate , UINavigationControllerDelegate{
     
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // If the image has been edited
+        if let image : UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            selectedImageOL.image = image
+            picker.dismiss(animated: true, completion: nil)
+        }
+        // If the image not edited
+        else if let image : UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            selectedImageOL.image = image
+            picker.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        
     }
     
     
     
-
- 
+    
+    
 }
